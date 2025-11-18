@@ -127,7 +127,7 @@ define('CS_DEBUG', defined('WP_DEBUG') && WP_DEBUG);
 
 #### 5. SQL Error Information Disclosure
 **Location:** `wordpress/ajax.php:88-92, 102-105`
-**Severity:** MEDIUM-HIGH
+**Severity:** HIGH
 
 **Issue:**
 ```php
@@ -235,7 +235,7 @@ if(! isset($_POST['security']) || ! CrellySliderHelpers::verifyNonce(esc_sql($op
 }
 ```
 
-**Issue:**
+**Problems:**
 - Inconsistent with WordPress best practices
 - Uses `esc_sql()` unnecessarily (nonces aren't going into SQL directly)
 - Custom implementation may be less secure
@@ -247,7 +247,7 @@ Standardize on WordPress nonce functions or improve the custom system.
 
 #### 10. Insecure HTTP Protocol
 **Location:** `wordpress/elements.php:120`
-**Severity:** LOW-MEDIUM
+**Severity:** MEDIUM
 
 **Issue:**
 ```php
@@ -650,12 +650,12 @@ Ojārs Kapteinis (ojars@kapteinis.lv)
 | File | Critical | High | Medium | Low | Status |
 |------|----------|------|--------|-----|--------|
 | crellyslider.php | 0 | 1 | 0 | 0 | ⚠️ |
-| wordpress/ajax.php | 1 | 2 | 3 | 1 | 🔴 |
+| wordpress/ajax.php | 0 | 1 | 4 | 0 | ⚠️ |
 | wordpress/admin.php | 0 | 0 | 0 | 0 | ✅ |
-| wordpress/frontend.php | 2 | 0 | 0 | 0 | 🔴 |
-| wordpress/common.php | 0 | 0 | 0 | 2 | ✅ |
+| wordpress/frontend.php | 1 | 1 | 0 | 0 | 🔴 |
+| wordpress/common.php | 0 | 0 | 0 | 1 | ✅ |
 | wordpress/helpers.php | 0 | 1 | 0 | 1 | ⚠️ |
-| wordpress/elements.php | 1 | 0 | 1 | 0 | 🔴 |
+| wordpress/elements.php | 0 | 1 | 1 | 0 | ⚠️ |
 | wordpress/tables.php | 0 | 0 | 0 | 0 | ✅ |
 | wordpress/slides.php | 0 | 0 | 0 | 0 | ✅ |
 
